@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.tbc</groupId>
+    <artifactId>spring_vue</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--必须为pom否则无法聚合!-->
+    <packaging>pom</packaging>
+    <!--聚合子类 打包的时候 maven会先扫描依赖顺序,然后根据依赖顺序进行打包,比如A依赖B就会先打包B然后再打包A-->
+    <modules>
+        <module>demo</module>
+        <module>base</module>
+    </modules>
+
+
+    <!--定义版本号-->
+    <properties>
+        <com.tbc.spring_vue>1.0-SNAPSHOT</com.tbc.spring_vue>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring.boot.version>2.2.6.RELEASE</spring.boot.version>
+        <org.mybatis.spring.boot>2.1.0</org.mybatis.spring.boot>
+        <org.aspectj.aspectjtools>1.8.5</org.aspectj.aspectjtools>
+        <com.alibaba.fastjson>1.2.54</com.alibaba.fastjson>
+        <org.freemarker>2.3.28</org.freemarker>
+        <io.springfox.springfox-swagger2>2.6.1</io.springfox.springfox-swagger2>
+        <io.springfox.springfox-swagger-ui>2.6.1</io.springfox.springfox-swagger-ui>
+        <redis.clients.jedis>2.9.3</redis.clients.jedis>
+        <junit>4.12</junit>
+    </properties>
+
+
+    <!--指定所有子类引用以下依赖的版本号,子类中不用显式的定义版本-->
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringBoot的依赖配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <!--maven2.9特性这种scope仅用于type为"pom"的dependency，
+                其意义为引入该dependency的pom中定义的所有dependency定义
+                用于让所有的子模块能够引用到springboot的同时又能用聚合-->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${org.freemarker}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--定义依赖,所有子类都会自动引入-->
+    <dependencies>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${redis.clients.jedis}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${org.mybatis.spring.boot}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjtools -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <!--使用jre会报错提示NotFundDefClassExcesption-->
+            <artifactId>aspectjtools</artifactId>
+            <version>${org.aspectj.aspectjtools}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${com.alibaba.fastjson}</version>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+        <!--swagger2-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${io.springfox.springfox-swagger2}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${io.springfox.springfox-swagger-ui}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit}</version>
+        </dependency>
+        <!-- EXchenge邮件发送        -->
+        <dependency>
+            <groupId>com.microsoft.ews-java-api</groupId>
+            <artifactId>ews-java-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+    </dependencies>
+
+    <!--编译管理 jdk版本和字符集编码-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Premain-Class>com.dianping.rhino.agent.AgentBoot</Premain-Class>
+                            <Agent-Class>com.dianping.rhino.agent.AgentBoot</Agent-Class>
+                            <Can-Redefine-Classes>true</Can-Redefine-Classes>
+                            <Can-Retransform-Classes>true</Can-Retransform-Classes>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
