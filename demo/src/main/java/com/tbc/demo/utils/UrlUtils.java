@@ -1,6 +1,12 @@
 package com.tbc.demo.utils;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
+import java.lang.reflect.Array;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 注释
@@ -11,9 +17,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UrlUtils {
 
-    public static String parseUrl(String url) {
-        
-        return null;
+    @Test
+    public void main() {
+        Method[] methods = this.getClass().getMethods();
+        for (Method method : methods) {
+            if (method.getName().equals("getString")) {
+                new ArrayList<>();
+            }
+        }
+
     }
 
+
+    public void getString(String str, List arrayList) {
+        System.out.println(str);
+
+    }
 }

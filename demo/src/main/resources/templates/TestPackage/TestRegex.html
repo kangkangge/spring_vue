@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        function test() {
+            var str = "TBCQuestionnaireAnswerService"
+            var s = str.replace(/([A-Z]{1}[a-z]+)/g, " $1");
+            alert(s);
+        }
+
+        function test1() {
+            var curUrl = quickerGetVar('curUrl');
+            var pcArr = [
+                'https://cloud.21tb.com/login/login.logout.do',
+                'cloud.21tb.com/login/login.logout.do',
+                'https://yufa.21tb.com/login/login.logout.do',
+                'yufa.21tb.com/login/login.logout.do',
+                'https://v4.21tb.com/login/login.logout.do',
+                'v4.21tb.com/login/login.logout.do',
+                'https://v5.21tb.com/login/login.logout.do',
+                'v5.21tb.com/login/login.logout.do',
+            ]
+            var wxArr = [
+                'http://cloud.21tb.com/wx/loginOut.do',
+                'cloud.21tb.com/wx/loginOut.do',
+                'http://yufa.21tb.com/wx/loginOut.do',
+                'yufa.21tb.com/wx/loginOut.do',
+                'http://v4.21tb.com/wx/loginOut.do',
+                'v4.21tb.com/wx/loginOut.do',
+                'http://v5.21tb.com/wx/loginOut.do',
+                'v5.21tb.com/wx/loginOut.do'
+            ]
+
+            function has(arr, curUrl) {
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i] == curUrl) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            if (!has(pcArr, curUrl)) {
+                if (!has(wxArr, curUrl)) {
+
+                } else {
+                    return 0
+                }
+            } else {
+                return 0
+            }
+
+            if (env.indexOf('yufa') != -1) {
+                quickerSetVar('cur', quickerGetVar('yufa'));
+            } else if (env.indexOf('v4') != -1) {
+                quickerSetVar('cur', quickerGetVar('v4'));
+            } else if (env.indexOf('v5') != -1) {
+                quickerSetVar('cur', quickerGetVar('v5'));
+            } else {
+                quickerSetVar('cur', quickerGetVar('cloud'));
+            }
+        }
+
+    </script>
+</head>
+<body>
+<button onClick="test()">点击测试</button>
+<button onClick="test1()">点击测试</button>
+</body>
+</html>

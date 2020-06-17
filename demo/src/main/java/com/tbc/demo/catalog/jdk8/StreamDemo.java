@@ -203,7 +203,7 @@ public class StreamDemo {
         for (int i = 0; i < 20; i++) {
             objects.add("1");
         }
-        List<String> collect = objects.stream().filter(o -> o.equals("1")).collect(Collectors.toList());
+        List<String> collect = objects.stream().filter(o -> o.equals("3")).collect(Collectors.toList());
         System.out.println(collect);
     }
 }
