@@ -8,7 +8,7 @@ public class ThreadsUtils {
     public static ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(40);
     private static final long WAIT_TIME = 10L;
 
-    public static <T> T autoExecute(Object obj, String methodName, Object... params) {
+    public static <T> T autoExecute(Object obj, String methodName, Object... params) throws Exception {
         return (T) newFixedThreadPool.submit(AutoCallable.build(obj, methodName, params));
     }
 

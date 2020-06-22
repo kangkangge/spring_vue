@@ -18,13 +18,23 @@ public class Demo {
 
 
     public static void main(String[] args) {
-        ArrayList<String> strings = new ArrayList<>();
-        strings.add("测试");
-        strings.add("测试1");
-        ThreadsUtils.autoExecute(new Demo(), "test2", strings);
+        int test = 0;
+
+        tag:
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                test += 1;
+                System.out.println(test);
+                if ((i > 0 && j > 2)) {
+                    System.out.println("跳出循环!");
+                    break tag;
+                }
+            }
+        }
+        System.out.println("最外层!");
     }
 
-    public  void test2(List list) {
+    public void test2(List list) {
         System.out.println(JSONObject.toJSONString(list));
     }
 }
