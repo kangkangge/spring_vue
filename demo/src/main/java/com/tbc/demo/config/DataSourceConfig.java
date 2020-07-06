@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Configuration
 public class DataSourceConfig {
 
-    @Bean("cloudJdbcTemplate")
     public JdbcTemplate jdbcTemplate() {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         DruidDataSource druidDataSource = new DruidDataSource();

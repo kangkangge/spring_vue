@@ -1,9 +1,10 @@
 package com.tbc.demo.catalog.send_emial;
 
-import org.apache.commons.mail.Email;
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.SimpleEmail;
+import org.apache.commons.mail.*;
 import org.junit.Test;
+
+import java.io.File;
+
 /**
  * 注释
  *
@@ -17,11 +18,9 @@ public class EmailSend {
         try {
             Email email = new SimpleEmail();
             email.setHostName("smtp.qq.com");
-            email.setSmtpPort(25);
-            //email.setAuthentication("544535975@qq.com","jhadngxbkjedbbah");//z
+            email.setSslSmtpPort("465");
+            email.setSSL(true);
             email.setAuthentication("956673560@qq.com", "ssmrlfdqfohlbeej");//z
-            //email.setAuthentication("544535975@qq.com","kmoakombqdxdbbjc");//z
-            //设置编码格式，防止乱码
             email.setCharset("UTF-8");
             email.setFrom("956673560@qq.com");
             email.setSubject("公司设置测试!");
@@ -33,5 +32,28 @@ public class EmailSend {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void sendAttachmentEmail() {
+        try {
+            //附件对象
+            EmailAttachment emailAttachment = new EmailAttachment();
+            //邮件对象
+            HtmlEmail email = new HtmlEmail();
+            email.setHostName("smtp.qq.com");
+            email.setSslSmtpPort("465");
+            email.setAuthentication("956673560@qq.com", "ssmrlfdqfohlbeej");//z
+            email.setCharset("UTF-8");
+            email.setFrom("gekangkang@21tb.com");
+            email.setSubject("公司设置测试!");
+            email.setMsg("公司设置账号测试");
+            email.attach(new File(getClass().getClassLoader().getResource("./static/邮件发送失败列表.xls").getPath()));
+            email.addTo("gekangkang@21tb.com");
+        } catch (EmailException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 }

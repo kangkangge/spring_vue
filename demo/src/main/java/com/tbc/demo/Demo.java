@@ -18,20 +18,12 @@ public class Demo {
 
 
     public static void main(String[] args) {
-        int test = 0;
-
-        tag:
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                test += 1;
-                System.out.println(test);
-                if ((i > 0 && j > 2)) {
-                    System.out.println("跳出循环!");
-                    break tag;
-                }
-            }
-        }
-        System.out.println("最外层!");
+        List<Object> objects = new ArrayList<>(99);
+        objects.add(0, "asdf");
+        objects.add(1, "asdf1");
+        objects.add(2, "asdf2");
+        objects.add(3, "asdf2");
+        System.out.println(objects.size());
     }
 
     public void test2(List list) {

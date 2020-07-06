@@ -1,14 +1,11 @@
 package com.tbc.demo.catalog.jedis;
 
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import com.tbc.demo.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.Jedis;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 注释
@@ -20,13 +17,18 @@ import java.util.Map;
 public class jedis {
 
     public static void main(String[] args) {
-        Jedis jedis = new Jedis("192.168.0.18", 6388);
-        jedis.rpush("testkey", "12312321");
-        String testkey = jedis.get("testkey");
-        System.out.println(testkey);
+        Jedis jedis = RedisUtils.getJedis();
+        jedis.sadd("test", "test1");
+        jedis.sadd("test", "test2");
+        jedis.sadd("test", "test3");
+        jedis.sadd("test", "test4");
+        jedis.sadd("test", "test5");
+        Boolean sismember = jedis.sismember("test", "test6");
+        System.out.println(sismember);
     }
 
 
+    //序列化
     private static byte[] serialize(Object object) {
         ObjectOutputStream objectOutputStream = null;
         ByteArrayOutputStream byteArrayOutputStream = null;
@@ -41,7 +43,7 @@ public class jedis {
         }
         return null;
     }
-
+    //反序列化
     private static Object unserizlize(byte[] binaryByte) {
         ObjectInputStream objectInputStream = null;
         ByteArrayInputStream byteArrayInputStream = null;
