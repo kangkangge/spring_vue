@@ -62,11 +62,11 @@ public class StopThread {
         //interrupt:    中断线程，但是没有返回结果。是唯一能将中断状态设置为true的方法。
         Thread b = getTestThread("b");
         b.start();
-        log.info("初始状态:" + b.interrupted());
+        log.info("初始状态:" + Thread.interrupted());
         b.interrupt();
-        log.info("中断后的状态:" + b.interrupted());
+        log.info("中断后的状态:" + Thread.interrupted());
         log.info("重置中断状态:" + b.isInterrupted());
-        log.info("重置后状态:" + b.interrupted());
+        log.info("重置后状态:" + Thread.interrupted());
         log.info(":" + b.isInterrupted());
 
     }

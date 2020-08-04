@@ -3,6 +3,7 @@ package com.tbc.demo.utils;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 public class AESUtils {
@@ -71,7 +72,7 @@ public class AESUtils {
             byte[] keyStr = getKey(password);
             SecretKeySpec key = new SecretKeySpec(keyStr, "AES");
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-            byte[] byteContent = content.getBytes("utf-8");
+            byte[] byteContent = content.getBytes(StandardCharsets.UTF_8);
             cipher.init(1, key);
             return cipher.doFinal(byteContent);
         }

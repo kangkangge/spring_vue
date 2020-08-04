@@ -8,7 +8,6 @@ public class JsonReader {
 
     @Test
     public void test1() {
-        User user = new User();
-        String s = JSONObject.toJSONString(user);
+
     }
 }

@@ -32,31 +32,37 @@ public class AutoCallable<T> implements Callable<T> {
     /**
      * 通过反射调用传入对象的指定方法,参数传入
      *
-     * @param obj
-     * @param curMethodName
-     * @param params
+     * @param obj 调用方法的实例对象
+     * @param curMethodName 调用的方法类型名称
+     * @param params 方法需要传入的参数(注意:不可以传入null,参数必须全部传入否则会提示找不到方法)
      * @return
      */
     public static Object execute(Object obj, String curMethodName, Object... params) throws Exception {
         Assert.notNull(obj, "调用对象不可为空!");
         Assert.hasText(curMethodName, "调用方法名不可为空!");
+        //参数类型的数据
         Class[] parameterTypes = null;
+        //参数类型的集合
         List paramsArr = new ArrayList();
         Class<?> objCalzz = obj.getClass();
         if (null != params) {
             parameterTypes = new Class[params.length];
+            //根据传入的方法名称与参数长度找到参数(因为有方法重载所需需要判断)
             List<Method> methods = Arrays.stream(objCalzz.getDeclaredMethods())
                     .filter(method -> method.getName().equals(curMethodName))
                     .filter(method -> method.getParameters().length == params.length)
                     .collect(Collectors.toList());
-            //参数类型转换
+            //goto语法退出多层循环使用!
             tag:
+            //参数类型转换,解决子类传入提示找不到方法的情况,如果传入的参数类型能够转换为方法的参数类型就直接强转
             for (int i = 0; i < methods.size(); i++) {
                 paramsArr.clear();
                 parameterTypes = methods.get(i).getParameterTypes();
                 for (int i1 = 0; i1 < parameterTypes.length; i1++) {
                     try {
+                        //把传入的参数转换为方法所需要的类型,如果转换失败就无法添加成功,跳出当前的循环!
                         paramsArr.add(i, parameterTypes[i].cast(params[i]));
+                        //如果参数匹配完毕就退出
                         if (paramsArr.size() == parameterTypes.length) {
                             break tag;
                         }

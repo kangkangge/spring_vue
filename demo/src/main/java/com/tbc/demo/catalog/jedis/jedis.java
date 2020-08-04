@@ -3,9 +3,13 @@ package com.tbc.demo.catalog.jedis;
 
 import com.tbc.demo.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.ScanResult;
 
 import java.io.*;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 注释
@@ -15,18 +19,42 @@ import java.io.*;
  */
 @Slf4j
 public class jedis {
+    Jedis jedis = RedisUtils.getJedis();
 
     public static void main(String[] args) {
         Jedis jedis = RedisUtils.getJedis();
-        jedis.sadd("test", "test1");
-        jedis.sadd("test", "test2");
-        jedis.sadd("test", "test3");
-        jedis.sadd("test", "test4");
-        jedis.sadd("test", "test5");
-        Boolean sismember = jedis.sismember("test", "test6");
-        System.out.println(sismember);
+
     }
 
+    /**
+     * 测试Hash (map)类型
+     */
+    @Test
+    public void hashTest() {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                jedis.hset("test1", "test" + i, "1" + j);
+            }
+        }
+        Set<String> test1 = jedis.hkeys("test1");
+        for (String s : test1) {
+            String test11 = jedis.hget("test1", s);
+            System.out.println(test11);
+
+        }
+        System.out.println(test1);
+    }
+
+    /**
+     * 测试rpush插入顺序与获取顺序
+     */
+    @Test
+    public void listTest() {
+        for (int i = 0; i < 10; i++) {
+            jedis.rpush("test3", "" + i);
+        }
+        System.out.println(jedis.llen("test3"));
+    }
 
     //序列化
     private static byte[] serialize(Object object) {
@@ -43,6 +71,7 @@ public class jedis {
         }
         return null;
     }
+
     //反序列化
     private static Object unserizlize(byte[] binaryByte) {
         ObjectInputStream objectInputStream = null;

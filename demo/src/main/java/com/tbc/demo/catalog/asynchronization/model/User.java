@@ -12,6 +12,5 @@ import lombok.NoArgsConstructor;
 public class User {
     private String naeme;
     private boolean sex;
-    private double price;
     private int age;
 }

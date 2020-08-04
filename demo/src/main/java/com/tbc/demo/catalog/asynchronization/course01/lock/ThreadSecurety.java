@@ -48,7 +48,7 @@ public class ThreadSecurety {
      */
     @Test
     public void markWork() throws InterruptedException {
-        User user = User.builder().age(11).sex(true).price(22.2).build();
+        User user = User.builder().age(11).sex(true).build();
         log.info(ClassLayout.parseInstance(user).toPrintable());
     }
 

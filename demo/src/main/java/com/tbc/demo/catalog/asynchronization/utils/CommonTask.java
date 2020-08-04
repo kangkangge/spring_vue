@@ -98,7 +98,7 @@ public class CommonTask<T> implements Callable<T>, Supplier<T> {
         } catch (TimeoutException e) {
             e.printStackTrace();
         }
-        return t1 == null ? null : (V) t1;
+        return t1 == null ? null : t1;
     }
 
 

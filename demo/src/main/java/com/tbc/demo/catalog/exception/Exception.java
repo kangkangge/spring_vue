@@ -1,6 +1,7 @@
 package com.tbc.demo.catalog.exception;
 
 import com.tbc.bean.JsonResult;
+import com.tbc.demo.catalog.asynchronization.model.User;
 import com.tbc.exception.base.CustomEx;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Exception {
 
+    public static void main(String[] args) {
+        try {
+            User user = null;
+            user.getAge();
+        } catch (java.lang.Exception e) {
+            log.info("{}", e);
+            log.info(e.getCause().toString());
+        }
+    }
+
+
     @RequestMapping("returnTest")
     public JsonResult returnTest() {
         try {
@@ -32,7 +44,7 @@ public class Exception {
 
     /**
      * 测试抛大异常捕捉是否能够捕捉到子异常,匿名内部类测试 ,如果没有手动new异常的话,就算是throws追的的,也能够使用子异常捕捉到对应的实体,如果手动new 异常了的话就只能捕捉到手动创建的和更大的!
-     * 
+     *
      * @return
      * @throws java.lang.Exception
      */

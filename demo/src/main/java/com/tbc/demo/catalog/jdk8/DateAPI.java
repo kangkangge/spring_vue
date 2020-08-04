@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.TimeZone;
 
 /**
@@ -42,10 +43,8 @@ public class DateAPI {
      * 3.ZoneId 代表时区类。通过静态工厂方法方便地获取它，入参我们可以传入某个时区编码。另外，时区类还定义了一个偏移量，用来在当前时刻或某时间
      * <p>
      * 与目标时区时间之间进行转换。
-     *
+     * <p>
      * 4.LocalTime LocalTime 表示一个没有指定时区的时间类
-     *
-     *
      */
     @Test
     public void test2() {
@@ -75,6 +74,17 @@ public class DateAPI {
         System.out.println(timeInMillis1);
         long currentTimeMillis = System.currentTimeMillis();
         System.out.println(currentTimeMillis);
+    }
+
+
+    /**
+     * 获取当前分钟
+     */
+    @Test
+    public void getMinute() {
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(new Date());
+        System.out.println(instance.get(Calendar.MINUTE) % 5);
     }
 
 

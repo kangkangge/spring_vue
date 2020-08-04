@@ -3,6 +3,9 @@ package com.tbc.demo.utils;
 
 import java.util.concurrent.*;
 
+/**callble
+ * 线程池工具,解决Callable 创建大量实例类的问题!
+ */
 public class ThreadsUtils {
 
     public static ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(40);
@@ -23,6 +26,6 @@ public class ThreadsUtils {
         } catch (TimeoutException e) {
             e.printStackTrace();
         }
-        return t1 == null ? null : (V) t1;
+        return t1 == null ? null : t1;
     }
 }

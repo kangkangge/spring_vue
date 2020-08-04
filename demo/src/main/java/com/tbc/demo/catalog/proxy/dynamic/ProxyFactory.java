@@ -18,7 +18,7 @@ public class ProxyFactory {
         Proxy.newProxyInstance(entity.getClass().getClassLoader(), Entity.class.getInterfaces(), new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                System.out.println("");
+                System.out.println();
                 return null;
             }
         });

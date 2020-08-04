@@ -1,5 +1,6 @@
 package com.tbc.demo.catalog.jdk8;
 
+import com.tbc.demo.common.model.User;
 import org.junit.Test;
 
 import java.util.*;
@@ -194,16 +195,24 @@ public class StreamDemo {
     }
 
     /**
-     * 测试过滤
+     * 测试按照指定字段分组
      */
     @Test
-    public void filterTest() {
-        List<String> objects = new ArrayList<>();
-        objects.add("3");
-        for (int i = 0; i < 20; i++) {
-            objects.add("1");
-        }
-        List<String> collect = objects.stream().filter(o -> o.equals("3")).collect(Collectors.toList());
+    public void filterGroupBy() {
+        ArrayList<User> users = new ArrayList<>();
+        users.add(new User("张三", 23));
+        users.add(new User("张三1", 23));
+        users.add(new User("张三2", 23));
+        users.add(new User("张三3", 25));
+        users.add(new User("张三4", 23));
+        users.add(new User("张三5", 25));
+        users.add(new User("张三6", 24));
+        users.add(new User("张三7", 21));
+        users.add(new User("张三8", 21));
+        users.add(new User("张三9", 21));
+        users.add(new User("张三10", 22));
+        users.add(new User("张三11", 222));
+        Map<Integer, List<User>> collect = users.stream().collect(Collectors.groupingBy(User::getAge));
         System.out.println(collect);
     }
 }

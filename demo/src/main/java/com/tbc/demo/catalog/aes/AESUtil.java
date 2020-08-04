@@ -2,6 +2,7 @@ package com.tbc.demo.catalog.aes;
 
 import org.springframework.util.Base64Utils;
 
+import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.logging.Level;
@@ -30,7 +31,7 @@ public class AESUtil{
         try {
             Cipher cipher = Cipher.getInstance(DEFAULT_CIPHER_ALGORITHM);// 创建密码器
 
-            byte[] byteContent = content.getBytes("utf-8");
+            byte[] byteContent = content.getBytes(StandardCharsets.UTF_8);
 
             cipher.init(Cipher.ENCRYPT_MODE, getSecretKey(key));// 初始化为加密模式的密码器
 
@@ -65,7 +66,7 @@ public class AESUtil{
             byte[] result = cipher.doFinal(Base64Utils.decodeFromString(content));
 
 
-            return new String(result, "utf-8");
+            return new String(result, StandardCharsets.UTF_8);
         } catch (Exception ex) {
             Logger.getLogger(AESUtil.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -94,7 +94,7 @@ public class ThreadLife {
                 e.printStackTrace();
             }
             for (int i = 0; i < 1000; i++) {
-                System.out.println("");
+                System.out.println();
                 String threadName = Thread.currentThread().getName();
                 System.out.println("Hello " + threadName);
             }

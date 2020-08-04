@@ -58,7 +58,9 @@ public class IO {
     public static void fileOutputStreamTest(String name, File file) throws IOException {
         FileOutputStream fileOutputStream;
         if (StringUtils.isNotEmpty(name)) {
-            //fileOutputStream = new FileOutputStream(new File(name),true);
+            //fileOutputStream = new FileOutputStream(ne
+            //
+            // w File(name),true);
             fileOutputStream = new FileOutputStream(new File(name), true);
         } else {
             fileOutputStream = new FileOutputStream(file);
@@ -110,38 +112,42 @@ public class IO {
         return null;
     }
 
-    @Test
-    public void demo1() {
-        int start = 0;
-        int sum = 0;
-        while (start < 100) {
-            if (start % 2 == 0) {
-                sum += start;
-            }
-            start++;
-        }
-        System.out.println(sum);
-    }
-
     /**
      * 输出文件流工具
      *
+     * 核心 api:
+     *      InputStream # read([]Byte b) : 从输入流读取一些字节数，并将它们存储到缓冲区b 。 读取长度最大为b的length 如果输入流,读取完毕返回 -1;
+     *      OutputStream # write (byte[] b,int off, int len)  :  从指定的字节数组写入len字节，从偏移off开始输出到此输出流。
+     *                  b - 数据。
+     *                  off - 数据中的起始偏移量。
+     *                  len - 要写入的字节数。
+     *      OutputStream # close()
+     *      InputStream # close()  关闭流,使用后一定要关闭io流,注意捕捉异常确保两个流都能成功关闭!
      * @param is
      * @param os
      * @throws Exception
      */
     public static void fileUpload(InputStream is, OutputStream os) throws Exception {
-        byte[] b = new byte[1024 * 1024 * 10];
-        int length = 0;
-        while (true) {
-            length = is.read(b);
-            if (length < 0)
-                break;
-            os.write(b, 0, length);
+        try {
+            //定义一个变量记录读取到
+            int length = 0;
+            byte[] b = new byte[1024 * 1024 * 10];
+            while (true) {
+                length = is.read(b);
+                //读取完毕退出
+                if (length < 0)
+                    break;
+                os.write(b, 0, length);
+            }
+        } catch (IOException e) {
+            try {
+                is.close();
+            } catch (Exception e1) {
+                os.close();
+            }
         }
 
-        is.close();
-        os.close();
+
 
     }
 }

@@ -8,10 +8,13 @@ public class User {
 
     private String username;
 
-    private int age;
+    private Integer age;
 
-    /*public User(String username, int age) {
+    public User() {
+    }
+
+    public User(String username, Integer age) {
         this.username = username;
         this.age = age;
-    }*/
+    }
 }

@@ -1,5 +1,6 @@
 package com.tbc.demo.catalog.send_emial;
 
+import com.tbc.demo.catalog.excel.Jxl;
 import org.apache.commons.mail.*;
 import org.junit.Test;
 
@@ -17,38 +18,40 @@ public class EmailSend {
     public void sendEmail() {
         try {
             Email email = new SimpleEmail();
-            email.setHostName("smtp.qq.com");
-            email.setSslSmtpPort("465");
-            email.setSSL(true);
-            email.setAuthentication("956673560@qq.com", "ssmrlfdqfohlbeej");//z
+            email.setHostName("mail.21tb.com");
+//            email.setSSL(true);
+//            email.setSslSmtpPort("465");
+            email.setAuthentication("gekangkang@21tb.com", "DAXIExiaoxie_=`9987");//z
             email.setCharset("UTF-8");
-            email.setFrom("956673560@qq.com");
+            email.setFrom("gekangkang@21tb.com");
             email.setSubject("公司设置测试!");
             email.setMsg("公司设置账号测试");
             email.addTo("gekangkang@21tb.com");
-            String send = email.send();
-            System.out.println(send);
+            email.send();
         } catch (EmailException e) {
             e.printStackTrace();
         }
     }
 
+    //测试附件邮件发送
     @Test
-    public void sendAttachmentEmail() {
+    public void sendAttachmentEmail() throws Exception {
         try {
             //附件对象
             EmailAttachment emailAttachment = new EmailAttachment();
             //邮件对象
             HtmlEmail email = new HtmlEmail();
-            email.setHostName("smtp.qq.com");
+            email.setHostName("mail.21tb.com");
+            email.setSSL(true);
             email.setSslSmtpPort("465");
-            email.setAuthentication("956673560@qq.com", "ssmrlfdqfohlbeej");//z
+            email.setAuthentication("gekangkang@21tb.com", "DAXIExiaoxie_=`9987");//z
             email.setCharset("UTF-8");
             email.setFrom("gekangkang@21tb.com");
             email.setSubject("公司设置测试!");
             email.setMsg("公司设置账号测试");
-            email.attach(new File(getClass().getClassLoader().getResource("./static/邮件发送失败列表.xls").getPath()));
-            email.addTo("gekangkang@21tb.com");
+            email.attach(new Jxl().writeExcel());
+            email.addTo("li0-");
+            email.send();
         } catch (EmailException e) {
             e.printStackTrace();
         }

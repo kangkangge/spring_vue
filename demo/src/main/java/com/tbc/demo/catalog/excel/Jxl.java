@@ -6,20 +6,25 @@ import jxl.format.Colour;
 import jxl.format.UnderlineStyle;
 import jxl.write.*;
 import org.junit.Test;
+import org.springframework.util.FileCopyUtils;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.Clock;
+import java.util.Date;
 
 
 public class Jxl {
 
     @Test
     public void test() throws IOException, WriteException {
-        writeExcel();
+
+
     }
 
-    public void writeExcel() throws IOException, WriteException {
-        File xlsFile = new File(getClass().getClassLoader().getResource("./static/邮件发送失败列表.xls").getPath());
+    public File writeExcel() throws IOException, WriteException {
+        File xlsFile = new File("C:\\Users\\gekang\\Desktop\\邮件发送失败列表.xls");
         // 创建一个工作簿
         WritableWorkbook workbook = Workbook.createWorkbook(xlsFile);
         // 创建一个工作表
@@ -30,12 +35,30 @@ public class Jxl {
                 if (row == 0) {
                     setTitle(sheet);
                 } else {
+                    switch (col) {
+                        case 0:
+                            sheet.addCell(new Label(col, row, "cheshi" + row + new Date()));
+                            break;
+                        case 1:
+                            sheet.addCell(new Label(col, row, "cheshi" + row + new Date()));
+                            break;
+                        case 2:
+                            sheet.addCell(new Label(col, row, "cheshi" + row + new Date()));
+                            break;
+                        case 3:
+                            sheet.addCell(new Label(col, row, "cheshi" + row + new Date()));
+                            break;
+                        case 4:
+                            sheet.addCell(new Label(col, row, Clock.systemDefaultZone().instant().toString()));
+                            break;
+                    }
 
                 }
             }
         }
         workbook.write();
         workbook.close();
+        return xlsFile;
     }
 
     public static void setTitle(WritableSheet sheet) throws WriteException {
