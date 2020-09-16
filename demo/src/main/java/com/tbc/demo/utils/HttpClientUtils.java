@@ -139,7 +139,7 @@ public class HttpClientUtils {
                 HttpEntity entity = response.getEntity();
                 String strResult = EntityUtils.toString(entity, "utf-8");
                 // 把json字符串转换成json对象
-            //    jsonResult = JSONObject.parseObject(strResult);
+                jsonResult = JSONObject.parseObject(strResult);
             } else {
                 logger.error("get请求提交失败:" + url);
             }

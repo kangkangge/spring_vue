@@ -4,17 +4,28 @@ import lombok.Data;
 
 
 @Data
-public class User {
+public class User extends com.tbc.demo.catalog.asynchronization.model.User implements Cloneable {
 
     private String username;
 
-    private Integer age;
+    private Integer age1;
 
     public User() {
     }
 
     public User(String username, Integer age) {
         this.username = username;
-        this.age = age;
+        this.age1 = age;
+    }
+
+    @Override
+    public Object clone() {
+        User stu = null;
+        try{
+            stu = (User)super.clone();
+        }catch(CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return stu;
     }
 }

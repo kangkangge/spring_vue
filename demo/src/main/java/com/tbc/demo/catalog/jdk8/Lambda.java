@@ -2,9 +2,11 @@ package com.tbc.demo.catalog.jdk8;
 
 import com.tbc.demo.common.model.User;
 import org.junit.Test;
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -39,9 +41,7 @@ public class Lambda {
      * list.forEach(File::getName); // 使用双冒号传递一个函数进来,
      * list.forEach( file -> file.getName()); // 使用正常的lambda表达式
      */
-    private List<User> list = Arrays.asList(
-
-    );
+    private static List<User> list = getUserList();
 
     /**
      * 循环遍历
@@ -82,14 +82,13 @@ public class Lambda {
     }
 
 
-
     /**
      * distinct 过滤重复
      */
 
     @Test
     public void testDistinct() {
-        list.stream().distinct().forEach(user -> System.out.println(user));
+        list.stream().distinct().forEach(user -> user.getAge());
     }
 
     /**
@@ -123,5 +122,22 @@ public class Lambda {
         System.out.println("全部大写---->");
         List<String> collect = words.stream().map(s -> s.toUpperCase()).collect(toList());
         collect.forEach(s -> System.out.println(s));
+    }
+
+    private static List<User> getUserList() {
+        User user0 = new User("张1", 1);
+        User user = new User("张1", 1);
+        User user1 = new User("张2", 2);
+        User user2 = new User("张3", 3);
+        User user3 = new User("张4", 123);
+        User user4 = new User("张5", 123);
+        User user5 = new User("张6", 123);
+        return Arrays.asList(user, user1, user2, user3, user4);
+
+    }
+
+
+    public static void main(String[] args) {
+        list.stream().filter(user -> user.getUsername().equals("张1")).forEach(user -> System.out.println(user.getUsername()));
     }
 }

@@ -35,11 +35,11 @@ public class AutoCallable<T> implements Callable<T> {
 
     /**
      * 通过反射调用传入对象的指定方法,参数传入
-     *
+     * <p>
      * 总结:
-     *`      1. 反射调用注意区,同名方法需要根据参数类型的不同来区分,
-     *`      2. 反射调用传入子类会找不到方法,需要把子类强转之后才可以
-     * `     3. A (object... params) - > B(Object... params) 如果A方法想要传入B方法 parames 的可变参数列表,可以在A方法内修改可变参数对应索引的值,但是不可以给params 赋值 Object[] 虽然可变参数原理是数组但是传入了数组他就会认定你是一个数组类型的参数只占一个参数位置!
+     * `      1. 反射调用注意区,同名方法需要根据参数类型的不同来区分,     *
+     * `      2. A (object... params) - > B(Object... params) 如果A方法想要传入B方法 parames 的可变参数列表,可以在A方法内修改可变参数对应索引的值,但是不可以给params 赋值 Object[] 虽然可变参数原理是数组但是传入了数组他就会认定你是一个数组类型的参数只占一个参数位置!
+     *
      * @param obj           调用方法的实例对象
      * @param curMethodName 调用的方法类型名称
      * @param params        方法需要传入的参数(注意:不可以传入null,参数必须全部传入否则会提示找不到方法)
@@ -53,7 +53,7 @@ public class AutoCallable<T> implements Callable<T> {
         Class<?> objCalzz = obj.getClass();
         Boolean converResult = true;
         if (null != params) {
-            //获取参数类型列表,用来确定调用的方法,如果传入下标相同的参数的类型是这个列表的子类会进行强制转换,解决子类找不到方法的问题
+            //获取参数类型列表,用来确定调用的方法,如果传入下标相同的参数的类型是这个列表的子类会进行强制转换,防止方法调用错误
             parameterTypes = new Class[params.length];
             //根据传入的方法名称与参数长度找到参数(因为有方法重载所需需要判断)
             List<Method> methods = Arrays.stream(objCalzz.getDeclaredMethods())
@@ -67,8 +67,8 @@ public class AutoCallable<T> implements Callable<T> {
                 parameterTypes = methods.get(i).getParameterTypes();
                 for (int i1 = 0; i1 < parameterTypes.length; i1++) {
                     try {
-                        //把传入的参数转换为方法所需要的类型,如果转换失败就无法添加成功,跳出当前的循环!
-                        params[i] = parameterTypes[i].cast(params[i]);
+                        //校验参数类型,确保方法调用没有问题
+                        parameterTypes[i1].cast(params[i1]);
                         //如果参数匹配完毕就退出
                         if (i1 == parameterTypes.length - 1) {
                             converResult = false;
