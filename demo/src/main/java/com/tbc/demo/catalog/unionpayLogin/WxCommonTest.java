@@ -92,7 +92,7 @@ public class WxCommonTest {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         DruidDataSource druidDataSource = new DruidDataSource();
         druidDataSource.setDriverClassName("org.postgresql.Driver");
-        druidDataSource.setUrl("jdbc:postgresql://172.21.0.18:5432/ps");
+        druidDataSource.setUrl("jdbc:postgresql://172.21.0.18:5432/std2");
         druidDataSource.setPassword("Eln4postgres");
         druidDataSource.setUsername("postgres");
         jdbcTemplate.setDataSource(druidDataSource);

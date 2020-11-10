@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cn.ucloud:ucloud-sdk-java-common:0.8.4.2-release">
+    <CLASSES>
+      <root url="jar://D:/utils/maven/apache-maven-3.5.0/repository/cn/ucloud/ucloud-sdk-java-common/0.8.4.2-release/ucloud-sdk-java-common-0.8.4.2-release.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/utils/maven/apache-maven-3.5.0/repository/cn/ucloud/ucloud-sdk-java-common/0.8.4.2-release/ucloud-sdk-java-common-0.8.4.2-release-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/utils/maven/apache-maven-3.5.0/repository/cn/ucloud/ucloud-sdk-java-common/0.8.4.2-release/ucloud-sdk-java-common-0.8.4.2-release-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

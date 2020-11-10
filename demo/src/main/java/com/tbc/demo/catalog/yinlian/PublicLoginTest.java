@@ -15,14 +15,14 @@ import java.util.UUID;
 @Slf4j
 public class PublicLoginTest {
     private static final String SEND_COUNT = "PUBLICE_LOGIN_COUNT";
-/*    //自己
-    private static final String TELPHONE = "17095315205";*/
+    //自己
+    private static final String TELPHONE = "17095315205";
 /*    //聂姝
     private static final String TELPHONE = "13367276447";*/
 /*    //郑吉利
     private static final String TELPHONE = "13272422747";   */
     //刘悦
-    private static final String TELPHONE = "13248080895";
+//    private static final String TELPHONE = "13248080895";
 
     private static final String COUNT = "-99";
     private static final String SEND_VERIFICODE = "PUBLICE_LOGIN_VERIFICODE";

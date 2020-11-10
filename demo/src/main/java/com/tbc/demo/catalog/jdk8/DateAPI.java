@@ -2,10 +2,7 @@ package com.tbc.demo.catalog.jdk8;
 
 import org.junit.Test;
 
-import java.time.Clock;
-import java.time.Instant;
-import java.time.LocalTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
@@ -87,5 +84,13 @@ public class DateAPI {
         System.out.println(instance.get(Calendar.MINUTE) % 5);
     }
 
+    /**
+     * 获取当前到明天凌晨时间毫秒值
+     */
+    @Test
+    public void test() {
+        Long time = -Duration.between(LocalDateTime.of(LocalDate.now(), LocalTime.MAX), LocalDateTime.now()).toMillis() / 1000 + 3600;
+        System.out.println(time);
+    }
 
 }

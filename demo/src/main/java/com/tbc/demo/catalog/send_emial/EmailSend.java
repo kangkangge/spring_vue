@@ -15,6 +15,26 @@ import java.io.File;
 public class EmailSend {
 
     @Test
+    public void sendEmail1() {
+        try {
+            Email email = new SimpleEmail();
+            email.setHostName("smtp.innovax.cn");
+//            email.setSSL(true);
+//            email.setSslSmtpPort("465");
+            email.setAuthentication("gekangkang@21tb.com", "DAXIExiaoxie_=`9987");//z
+            email.setCharset("UTF-8");
+            email.setFrom("gekangkang@21tb.com");
+            email.setSubject("公司设置测试!");
+            email.setMsg("公司设置账号测试");
+            email.addTo("gekangkang@21tb.com");
+            email.send();
+        } catch (EmailException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
     public void sendEmail() {
         try {
             Email email = new SimpleEmail();

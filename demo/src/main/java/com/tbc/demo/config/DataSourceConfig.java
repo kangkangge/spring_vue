@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Configuration
 public class DataSourceConfig {
 
-    public JdbcTemplate jdbcTemplate() {
+/*    public JdbcTemplate jdbcTemplate() {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         DruidDataSource druidDataSource = new DruidDataSource();
         druidDataSource.setDriverClassName("org.postgresql.Driver");
@@ -17,5 +17,5 @@ public class DataSourceConfig {
         druidDataSource.setUsername("postgres");
         jdbcTemplate.setDataSource(druidDataSource);
         return jdbcTemplate;
-    }
+    }*/
 }
