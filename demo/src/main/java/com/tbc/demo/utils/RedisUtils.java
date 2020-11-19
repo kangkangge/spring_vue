@@ -1,6 +1,7 @@
 package com.tbc.demo.utils;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 import redis.clients.jedis.*;
 
 import java.util.*;
@@ -9,11 +10,30 @@ import java.util.*;
 public class RedisUtils {
 
     public static void main(String[] args) {
+        int a = 2;
+        int b = 5;
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
+        System.out.println(a + "   " + b);
+    }
+
+    /**
+     * 设置公司数据源
+     */
+    @Test
+    public void setDataSource() {
+        String corpCode = "";
+        String modile = "";
+        setMdlDateRedis(corpCode, modile);
+    }
+
+
+    private void setMdlDateRedis(String corpCode, String modile) {
+        String str = "{\"driverClass\":\"org.postgresql.Driver\",\"jdbcUrl\":\"jdbc:postgresql://cloudb:5432/" + modile + "\",\"userName\":\"postgres\",\"password\":\"Eln4postgres\"}";
         JedisCluster clusterJedis = getClusterJedis();
-        clusterJedis.hset("cheshiyihao", "测试111", "111");
-        clusterJedis.expire("cheshiyihao",9999);
-        String hget = clusterJedis.hget("cheshiyihao", "测试111");
-        System.out.println(hget);
+        String set = clusterJedis.set(modile + ";" + corpCode, str);
+        System.out.println(set);
     }
 
 
