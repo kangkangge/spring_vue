@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring_vue.iml" filepath="$PROJECT_DIR$/spring_vue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring_vue.iml" filepath="$PROJECT_DIR$/.idea/spring_vue.iml" />
     </modules>
   </component>
 </project>
