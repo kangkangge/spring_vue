@@ -28,6 +28,7 @@ public class EmailSend {
             email.setMsg("公司设置账号测试");
             email.addTo("gekangkang@21tb.com");
             email.send();
+
         } catch (EmailException e) {
             e.printStackTrace();
         }

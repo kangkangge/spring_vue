@@ -10,11 +10,6 @@
         <module name="base" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="base" target="1.8" />
-      <module name="demo" target="1.8" />
-      <module name="spring_vue" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
