@@ -1,7 +1,7 @@
 package com.tbc.demo.catalog.jdk8;
 
 import com.tbc.demo.common.model.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;

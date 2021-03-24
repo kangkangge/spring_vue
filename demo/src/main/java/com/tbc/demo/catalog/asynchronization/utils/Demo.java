@@ -5,7 +5,7 @@ import com.tbc.demo.common.model.User;
 import com.tbc.demo.utils.AutoCallable;
 import com.tbc.demo.utils.ThreadsUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;

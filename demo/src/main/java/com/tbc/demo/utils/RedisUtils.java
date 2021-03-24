@@ -1,7 +1,7 @@
 package com.tbc.demo.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import redis.clients.jedis.*;
 
 import java.util.*;

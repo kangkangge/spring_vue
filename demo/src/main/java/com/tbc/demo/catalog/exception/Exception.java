@@ -5,7 +5,7 @@ import com.tbc.demo.catalog.asynchronization.model.User;
 import com.tbc.exception.base.CustomEx;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

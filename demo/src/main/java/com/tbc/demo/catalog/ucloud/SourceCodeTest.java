@@ -10,7 +10,7 @@ import com.tbc.demo.catalog.jedis.jedis;
 import com.tbc.demo.utils.MD5Generator;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RegExUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.PatternMatchUtils;
 import org.springframework.util.StringUtils;

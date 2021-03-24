@@ -5,7 +5,6 @@ import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import com.tbc.demo.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Test;
 import org.springframework.boot.web.embedded.netty.NettyWebServer;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
@@ -47,7 +46,6 @@ public class Demo {
     }
 
 
-    @Test
     public void test() {
         StringBuilder stringBuilder = new StringBuilder();
         String s = stringBuilder.toString().replaceFirst("111", "");

@@ -1,7 +1,7 @@
 package com.tbc.demo.catalog.http;
 
 import com.alibaba.fastjson.JSONObject;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;

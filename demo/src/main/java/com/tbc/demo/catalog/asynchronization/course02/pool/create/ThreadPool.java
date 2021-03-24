@@ -1,7 +1,6 @@
 package com.tbc.demo.catalog.asynchronization.course02.pool.create;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 
 import java.util.concurrent.*;
 
@@ -17,7 +16,6 @@ public class ThreadPool {
      */
     ExecutorService executorService = Executors.newCachedThreadPool();
 
-    @Test
     public void executorTest() throws ExecutionException, InterruptedException {
         /**
          * 使用submit 执行通过返回对象调用result.get()获取返回值;

@@ -8,16 +8,16 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 //@Configuration
 public class DataSourceConfig {
 
-    public NamedParameterJdbcTemplate jdbcTemplate = getJdbcTemplate();
+    public static NamedParameterJdbcTemplate jdbcTemplate = getJdbcTemplate();
 
-    private final String paasowrd = "544535975";
-    private final String userName = "root";
-    private final String url = "jdbc:mysql://localhost/test?serverTimezone=Asia/Shanghai";
-    private final String driver = "com.mysql.jdbc.Driver";
+    private static final String paasowrd = "544535975";
+    private static final String userName = "root";
+    private static final String url = "jdbc:mysql://localhost/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai";
+    private static final String driver = "com.mysql.jdbc.Driver";
 
 
     @Bean
-    public NamedParameterJdbcTemplate getJdbcTemplate() {
+    public static NamedParameterJdbcTemplate getJdbcTemplate() {
         DruidDataSource druidDataSource = new DruidDataSource();
         druidDataSource.setDriverClassName(driver);
         druidDataSource.setUrl(url);

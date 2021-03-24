@@ -1,6 +1,6 @@
 package com.tbc.demo.catalog.jdk8;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.*;
 import java.time.temporal.ChronoUnit;

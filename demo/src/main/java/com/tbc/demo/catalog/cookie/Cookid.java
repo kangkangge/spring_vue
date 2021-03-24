@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.tbc.demo.common.Constant;
 import com.tbc.demo.common.model.User;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

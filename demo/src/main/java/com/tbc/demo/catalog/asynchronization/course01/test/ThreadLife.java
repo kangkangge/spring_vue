@@ -1,8 +1,7 @@
 package com.tbc.demo.catalog.asynchronization.course01.test;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
-import org.junit.runner.Runner;
+import org.junit.jupiter.api.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

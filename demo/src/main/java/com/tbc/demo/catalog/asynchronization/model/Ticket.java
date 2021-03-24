@@ -3,7 +3,7 @@ package com.tbc.demo.catalog.asynchronization.model;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.locks.ReentrantLock;
 

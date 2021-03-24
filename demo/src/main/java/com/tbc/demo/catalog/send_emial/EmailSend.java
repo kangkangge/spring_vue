@@ -2,7 +2,7 @@ package com.tbc.demo.catalog.send_emial;
 
 import com.tbc.demo.catalog.excel.Jxl;
 import org.apache.commons.mail.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 

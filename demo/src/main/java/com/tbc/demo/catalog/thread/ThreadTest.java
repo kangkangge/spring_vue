@@ -1,7 +1,7 @@
 package com.tbc.demo.catalog.thread;
 
 import com.tbc.demo.catalog.asynchronization.course01.create.TreadRunnable;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * 多线程测试

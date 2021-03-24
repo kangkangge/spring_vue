@@ -8,7 +8,7 @@ import com.alibaba.fastjson.JSON;
 import com.tbc.demo.catalog.unionpayLogin.WxCommonTest;
 import com.tbc.demo.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import redis.clients.jedis.Jedis;
 

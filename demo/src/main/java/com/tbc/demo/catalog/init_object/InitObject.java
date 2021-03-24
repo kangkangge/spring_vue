@@ -1,7 +1,7 @@
 package com.tbc.demo.catalog.init_object;
 
 import lombok.Data;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * 注释
