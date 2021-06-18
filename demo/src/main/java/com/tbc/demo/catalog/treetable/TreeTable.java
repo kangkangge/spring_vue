@@ -2,6 +2,7 @@ package com.tbc.demo.catalog.treetable;
 
 
 import cn.hutool.core.util.StrUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.tbc.demo.common.model.TagManager;
 import com.tbc.demo.config.DataSourceConfig;
 import com.tbc.demo.utils.UUIDGenerate;
@@ -9,9 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * 测试树形结构 , 优化递归查询问题
@@ -39,6 +38,7 @@ public class TreeTable {
         map.put("tag_desc", "null");
         map.put("show_order", 123);
         for (int i = 0; i < 50; i++) {
+
             String uuid = UUIDGenerate.uuid();
             map.put("tag_id", uuid);
             map.put("tag_name", "1级菜单");
@@ -64,5 +64,23 @@ public class TreeTable {
             return null;
         }
         return null;
+    }
+
+    @Test
+    public void test() {
+        List<TagManager> objects = new ArrayList<>();
+        for (int i = 0; i < 999; i++) {
+            TagManager tagManager = new TagManager();
+            tagManager.setTagId(i + "");
+            System.out.println(new Date());
+            tagManager.setCreateTime(new Date());
+            objects.add(tagManager);
+            objects.add(tagManager);
+        }
+        Set<TagManager> set = new TreeSet<>(Comparator.comparing(TagManager::getTagId));
+        Set<TagManager> set1 = new TreeSet<>(Comparator.comparing(TagManager::getCreateTime));
+        set1.addAll(set);
+        set.addAll(objects);
+        System.out.println(JSONObject.toJSONString(set1));
     }
 }

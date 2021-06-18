@@ -1,0 +1,41 @@
+2021-06-15 19:07:31.258 [main]: INFO org.springframework.boot.StartupInfoLogger:55 logStarting -  Starting DemoApplication on LAPTOP-OC511DHP with PID 18468 (D:\my_project\Growth\spring_vue\demo\target\classes started by gekang in D:\my_project\Growth\spring_vue)
+2021-06-15 19:07:31.286 [main]: INFO org.springframework.boot.SpringApplication:651 logStartupProfileInfo -  No active profile set, falling back to default profiles: default
+2021-06-15 19:07:34.799 [main]: INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate:249 multipleStoresDetected -  Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-15 19:07:34.809 [main]: INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate:127 registerRepositoriesIn -  Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-15 19:07:35.234 [main]: INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate:187 registerRepositoriesIn -  Finished Spring Data repository scanning in 376ms. Found 0 Redis repository interfaces.
+2021-06-15 19:07:38.470 [main]: INFO com.tbc.demo.common.LoggerAop:41 afterReturningPrintLog -  ##########   方法执行总时长:[1623755258470]毫秒
+2021-06-15 19:07:38.652 [main]: INFO com.tbc.demo.common.LoggerAop:53 exAfterReturning -  ##########   执行返回值:[{}]
+2021-06-15 19:07:39.015 [main]: INFO com.tbc.demo.common.LoggerAop:41 afterReturningPrintLog -  ##########   方法执行总时长:[1623755259015]毫秒
+2021-06-15 19:07:39.016 [main]: INFO com.tbc.demo.common.LoggerAop:53 exAfterReturning -  ##########   执行返回值:[null]
+2021-06-15 19:07:39.016 [main]: INFO com.tbc.demo.common.LoggerAop:41 afterReturningPrintLog -  ##########   方法执行总时长:[1623755259016]毫秒
+2021-06-15 19:07:39.017 [main]: INFO com.tbc.demo.common.LoggerAop:53 exAfterReturning -  ##########   执行返回值:[null]
+2021-06-15 19:07:39.557 [main]: INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer:108 initialize -  Tomcat initialized with port(s): 8081 (http)
+2021-06-15 19:07:39.587 [main]: INFO org.apache.juli.logging.DirectJDKLog:173 log -  Initializing ProtocolHandler ["http-nio-127.0.0.1-8081"]
+2021-06-15 19:07:39.589 [main]: INFO org.apache.juli.logging.DirectJDKLog:173 log -  Starting service [Tomcat]
+2021-06-15 19:07:39.589 [main]: INFO org.apache.juli.logging.DirectJDKLog:173 log -  Starting Servlet engine: [Apache Tomcat/9.0.35]
+2021-06-15 19:07:39.775 [main]: INFO org.apache.juli.logging.DirectJDKLog:173 log -  Initializing Spring embedded WebApplicationContext
+2021-06-15 19:07:39.775 [main]: INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:284 prepareWebApplicationContext -  Root WebApplicationContext: initialization completed in 8257 ms
+2021-06-15 19:07:42.772 [main]: INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport:181 initialize -  Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-15 19:07:46.605 [main]: INFO org.apache.juli.logging.DirectJDKLog:173 log -  Starting ProtocolHandler ["http-nio-127.0.0.1-8081"]
+2021-06-15 19:07:46.675 [main]: INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer:220 start -  Tomcat started on port(s): 8081 (http) with context path ''
+2021-06-15 19:07:46.695 [main]: INFO org.springframework.boot.StartupInfoLogger:61 logStarted -  Started DemoApplication in 17.936 seconds (JVM running for 30.746)
+2021-06-15 19:08:18.343 [http-nio-127.0.0.1-8081-exec-1]: INFO org.apache.juli.logging.DirectJDKLog:173 log -  A cookie header was received [1611978361,1611989314,1611997184] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2021-06-15 19:08:18.373 [http-nio-127.0.0.1-8081-exec-1]: INFO org.apache.juli.logging.DirectJDKLog:173 log -  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-15 19:08:18.374 [http-nio-127.0.0.1-8081-exec-1]: INFO org.springframework.web.servlet.FrameworkServlet:525 initServletBean -  Initializing Servlet 'dispatcherServlet'
+2021-06-15 19:08:18.450 [http-nio-127.0.0.1-8081-exec-1]: INFO org.springframework.web.servlet.FrameworkServlet:547 initServletBean -  Completed initialization in 76 ms
+2021-06-15 19:08:18.567 [http-nio-127.0.0.1-8081-exec-1]: INFO com.tbc.demo.common.LoggerAop:41 afterReturningPrintLog -  ##########   方法执行总时长:[1623755298567]毫秒
+2021-06-15 19:08:18.568 [http-nio-127.0.0.1-8081-exec-1]: INFO com.tbc.demo.common.LoggerAop:53 exAfterReturning -  ##########   执行返回值:["demo"]
+2021-06-15 19:08:18.988 [http-nio-127.0.0.1-8081-exec-2]: INFO com.tbc.demo.common.LoggerAop:41 afterReturningPrintLog -  ##########   方法执行总时长:[1623755298988]毫秒
+2021-06-15 19:08:18.989 [http-nio-127.0.0.1-8081-exec-2]: INFO com.tbc.demo.common.LoggerAop:53 exAfterReturning -  ##########   执行返回值:["/templates/404.html"]
+2021-06-15 19:09:15.211 [http-nio-127.0.0.1-8081-exec-3]: INFO com.tbc.demo.common.LoggerAop:41 afterReturningPrintLog -  ##########   方法执行总时长:[1623755355211]毫秒
+2021-06-15 19:09:15.211 [http-nio-127.0.0.1-8081-exec-3]: INFO com.tbc.demo.common.LoggerAop:53 exAfterReturning -  ##########   执行返回值:["demo"]
+2021-06-15 19:11:25.877 [http-nio-127.0.0.1-8081-exec-6]: WARN org.mybatis.logging.Logger:44 warn -  No MyBatis mapper was found in '[com.tbc.demo.dao.**]' package. Please check your configuration.
+2021-06-15 19:11:25.877 [http-nio-127.0.0.1-8081-exec-6]: INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate:127 registerRepositoriesIn -  Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-15 19:11:25.997 [http-nio-127.0.0.1-8081-exec-6]: INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate:187 registerRepositoriesIn -  Finished Spring Data repository scanning in 118ms. Found 0 Redis repository interfaces.
+2021-06-15 19:11:26.195 [http-nio-127.0.0.1-8081-exec-6]: INFO com.tbc.demo.common.LoggerAop:41 afterReturningPrintLog -  ##########   方法执行总时长:[1623755486195]毫秒
+2021-06-15 19:11:26.196 [http-nio-127.0.0.1-8081-exec-6]: INFO com.tbc.demo.common.LoggerAop:53 exAfterReturning -  ##########   执行返回值:["demo"]
+2021-06-15 19:11:32.965 [http-nio-127.0.0.1-8081-exec-7]: INFO com.tbc.demo.common.LoggerAop:41 afterReturningPrintLog -  ##########   方法执行总时长:[1623755492965]毫秒
+2021-06-15 19:11:32.966 [http-nio-127.0.0.1-8081-exec-7]: INFO com.tbc.demo.common.LoggerAop:53 exAfterReturning -  ##########   执行返回值:["demo"]
+2021-06-15 19:30:13.270 [http-nio-127.0.0.1-8081-exec-10]: INFO com.tbc.demo.common.LoggerAop:41 afterReturningPrintLog -  ##########   方法执行总时长:[1623756613270]毫秒
+2021-06-15 19:30:13.270 [http-nio-127.0.0.1-8081-exec-10]: INFO com.tbc.demo.common.LoggerAop:53 exAfterReturning -  ##########   执行返回值:["demo"]

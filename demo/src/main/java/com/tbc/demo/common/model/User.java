@@ -6,9 +6,9 @@ import lombok.Data;
 @Data
 public class User extends com.tbc.demo.catalog.asynchronization.model.User implements Cloneable {
 
-    private String username;
+    protected String username;
 
-    private Integer age1;
+    protected Integer age1;
 
     public User() {
     }

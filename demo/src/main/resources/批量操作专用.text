@@ -1,11 +1,1 @@
-执行器: app-jw
-任务描述: 同步短信模板注册状态
-路由策略: 第一个
-Cron: * * 0,6,12,18 * * ?
-运行模式: BEAN
-JobHandler: SyncTemplateRegisterStatusHandler
-阻塞处理策略: 单机串行
-任务超时时间: 0
-失败重试次数: 0
-负责人: 葛康康
-任务参数: default
+#{id},#{studentUserId},#{crUserId},#{dropTime},#{dropTime},#{updateBy},#{deleted},#{createTime},#{updateTime}

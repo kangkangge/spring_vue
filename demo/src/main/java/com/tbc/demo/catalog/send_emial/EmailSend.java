@@ -70,7 +70,7 @@ public class EmailSend {
             email.setFrom("gekangkang@21tb.com");
             email.setSubject("公司设置测试!");
             email.setMsg("公司设置账号测试");
-            email.attach(new Jxl().writeExcel());
+//            email.attach(new Jxl().writeExcel());
             email.addTo("li0-");
             email.send();
         } catch (EmailException e) {
